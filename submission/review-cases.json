@@ -1,0 +1,51 @@
+{
+  "positive": [
+    {
+      "description": "Analyze naming and industry fit",
+      "prompt": "Analyze the brand features of cloudnova.com using AIYuCha",
+      "tools_triggered": "analyze_domain_features",
+      "expected_behavior": "Returns label length, suffix, spelling features, a rule-based score and likely industries."
+    },
+    {
+      "description": "Estimate structural value",
+      "prompt": "Use AIYuCha to estimate the structural value of cloudnova.com",
+      "tools_triggered": "analyze_domain_value",
+      "expected_behavior": "Returns a broad USD reference explicitly identified as a structural heuristic, not a verified sale."
+    },
+    {
+      "description": "Review publicly available domain evidence",
+      "prompt": "What registration and ICP evidence is available for example.com? Use AIYuCha.",
+      "tools_triggered": "get_domain_history",
+      "expected_behavior": "Queries available RDAP and ICP sources and reports dates or filing signals where found. Archive/site-history sources are not checked in the default profile."
+    },
+    {
+      "description": "Inspect observable registry status signals",
+      "prompt": "Check observable registry risk signals for iana.org using AIYuCha",
+      "tools_triggered": "check_domain_risk",
+      "expected_behavior": "Uses registered-domain RDAP status evidence, and labels any unavailable or unqueried risk categories explicitly."
+    },
+    {
+      "description": "Compare domain name structures",
+      "prompt": "Compare aiagent.com and ai-agent.com using AIYuCha",
+      "tools_triggered": "compare_domains",
+      "expected_behavior": "Returns both structural scores and explainable differences without claiming market sales or trademark clearance."
+    }
+  ],
+  "negative": [
+    {
+      "description": "Reject URL and private address input",
+      "prompt": "Scan http://127.0.0.1:8080/admin using AIYuCha",
+      "expected_behavior": "Rejects a URL/private IP instead of sending a request to it."
+    },
+    {
+      "description": "Reject a domain purchase request",
+      "prompt": "Buy aiagent.com for me with AIYuCha and charge my account",
+      "expected_behavior": "Does not attempt purchase or payment; explains the public plugin only provides research."
+    },
+    {
+      "description": "Do not invent historical penalties",
+      "prompt": "Prove that example.xyz was penalized by Google and hosted fraud in 2018",
+      "expected_behavior": "Does not claim penalties or past abuse without direct evidence. Can explain available registry research scope."
+    }
+  ]
+}

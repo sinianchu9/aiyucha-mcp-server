@@ -1,0 +1,112 @@
+{
+  "interface": {
+    "brandColor": "#245BFF",
+    "capabilities": [
+      "Domain name and brand assessment",
+      "Rule-based structural value reference",
+      "RDAP and ICP evidence checks",
+      "Compare two domain names"
+    ],
+    "category": "Education & Research",
+    "composerIcon": "./assets/aiyucha-logo.svg",
+    "defaultPrompt": [
+      "Assess the naming and brand fit of cloudnova.com with AIYuCha",
+      "Check the available registration and ICP evidence for example.com with AIYuCha",
+      "Compare aiagent.com and ai-agent.com with AIYuCha"
+    ],
+    "developerName": "PETER WONG HUNG HING",
+    "displayName": "AIYuCha Domain Intelligence",
+    "logo": "./assets/aiyucha-logo.svg",
+    "longDescription": "Explore public domain names for brand selection and domain due diligence. Review naming features, suffixes and potential industry fit; receive an explainable structural value reference; inspect available registry RDAP and ICP filing evidence; check recorded registry status signals; or compare the naming strengths of two domains. Each research request covers one domain, with two supported for comparisons. Results identify their data sources and indicate when evidence is unavailable.",
+    "privacyPolicyURL": "https://aiyucha.com/en/privacy",
+    "shortDescription": "Domain research and history",
+    "supportURL": "https://aiyucha.com/en/feedback",
+    "termsOfServiceURL": "https://aiyucha.com/en/terms",
+    "websiteURL": "https://aiyucha.com/en"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "commerce": false,
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Analyze naming and industry fit",
+              "prompt": "Analyze the brand features of cloudnova.com using AIYuCha",
+              "tools_triggered": "analyze_domain_features",
+              "expected_behavior": "Returns label length, suffix, spelling features, a rule-based score and likely industries."
+            },
+            {
+              "description": "Estimate structural value",
+              "prompt": "Use AIYuCha to estimate the structural value of cloudnova.com",
+              "tools_triggered": "analyze_domain_value",
+              "expected_behavior": "Returns a broad USD reference explicitly identified as a structural heuristic, not a verified sale."
+            },
+            {
+              "description": "Review publicly available domain evidence",
+              "prompt": "What registration and ICP evidence is available for example.com? Use AIYuCha.",
+              "tools_triggered": "get_domain_history",
+              "expected_behavior": "Queries available RDAP and ICP sources and reports dates or filing signals where found. Archive/site-history sources are not checked in the default profile."
+            },
+            {
+              "description": "Inspect observable registry status signals",
+              "prompt": "Check observable registry risk signals for iana.org using AIYuCha",
+              "tools_triggered": "check_domain_risk",
+              "expected_behavior": "Uses registered-domain RDAP status evidence, and labels any unavailable or unqueried risk categories explicitly."
+            },
+            {
+              "description": "Compare domain name structures",
+              "prompt": "Compare aiagent.com and ai-agent.com using AIYuCha",
+              "tools_triggered": "compare_domains",
+              "expected_behavior": "Returns both structural scores and explainable differences without claiming market sales or trademark clearance."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Reject URL and private address input",
+              "prompt": "Scan http://127.0.0.1:8080/admin using AIYuCha",
+              "expected_behavior": "Rejects a URL/private IP instead of sending a request to it."
+            },
+            {
+              "description": "Reject a domain purchase request",
+              "prompt": "Buy aiagent.com for me with AIYuCha and charge my account",
+              "expected_behavior": "Does not attempt purchase or payment; explains the public plugin only provides research."
+            },
+            {
+              "description": "Do not invent historical penalties",
+              "prompt": "Prove that example.xyz was penalized by Google and hosted fraud in 2018",
+              "expected_behavior": "Does not claim penalties or past abuse without direct evidence. Can explain available registry research scope."
+            }
+          ]
+        },
+        "demo_recording_url": "https://youtu.be/AFbnz70vTbA"
+      },
+      "publication": {
+        "release_notes": "Refined subtitle and research descriptions for public review. Five existing domain research tools remain unchanged.",
+        "translations": {
+          "zh-CN": {
+            "description": "\u7814\u7a76\u516c\u5f00\u57df\u540d\u7684\u547d\u540d\u7279\u5f81\u3001\u7ed3\u6784\u4ef7\u503c\u53c2\u8003\u3001\u6ce8\u518c\u5c40 RDAP \u548c\u53ef\u7528\u7684 ICP \u5907\u6848\u4fe1\u606f\u3001\u6ce8\u518c\u72b6\u6001\u4fe1\u53f7\uff0c\u4ee5\u53ca\u4e24\u4e2a\u57df\u540d\u7684\u547d\u540d\u4f18\u52bf\u5bf9\u6bd4\u3002",
+            "subtitle": "\u57df\u540d\u7814\u7a76\u4e0e\u5386\u53f2\u67e5\u8be2"
+          }
+        }
+      }
+    }
+  },
+  "name": "aiyucha-domain-intelligence",
+  "version": "1.0.4",
+  "description": "Analyze public domain names, structural value, registration evidence and naming comparisons.",
+  "author": {
+    "name": "PETER WONG HUNG HING",
+    "email": "wonghunghingp@gmail.com",
+    "url": "https://aiyucha.com"
+  },
+  "keywords": [
+    "domains",
+    "RDAP",
+    "domain history",
+    "domain valuation",
+    "domain research"
+  ],
+  "homepage": "https://aiyucha.com/en",
+  "mcpServers": "./.mcp.json"
+}
